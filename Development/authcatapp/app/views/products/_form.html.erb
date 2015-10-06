@@ -1,0 +1,16 @@
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@product[:name]) %>
+  <%= f.input :description %>
+  <%= error_span(@product[:description]) %>
+  <%= f.association :category %>
+  <%= error_span(@product[:category_id]) %>
+  <%= f.input :tag_list %>
+  <%= error_span(@product[:tag_list]) %>
+  <%= image_tag @product.picture.url(:medium) %>
+  <%= f.input :picture, as: :file %>
+  <%= error_span(@product[:category_id]) %>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn btn-default' %>
+<% end %>
